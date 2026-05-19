@@ -10,6 +10,7 @@
     {if $globals.site_keywords}
     <meta name="keywords" content="{$globals.site_keywords}" />{/if}
     <link rel="stylesheet" href="./static/css/new_index/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="shortcut icon" href="/static/img/favicon.png" type="image/x-icon">
     {literal}
     <script>
@@ -334,191 +335,311 @@
 
     <section id="products" class="products section">
         <div class="container container--relative">
-            <div class="products__header">
-                <div class="products__rectangle"></div>
-                <h2 class="products__title">НАША <br> ПРОДУКЦИЯ</h2>
+
+            <div class="projects__top">
+
+                <div class="projects__header">
+                    <div class="projects__rectangle"></div>
+                    <h2 class="projects__title">НАША ПРОДУКЦИЯ</h2>
+                </div>
+
+                <div class="projects__nav">
+                    <button class="projects__arrow projects__arrow--prev"></button>
+                    <button class="projects__arrow projects__arrow--next"></button>
+                </div>
+
             </div>
-            <div class="products__content">
-                <div class="products__grid">
-                    <!-- Первый столбец -->
-                    <div class="products__column">
-                        <a href="https://www.uksgroup.ru/catalog/dveri">
-                            <div class="products__item"
-                                style="background: url('./static/img/new_index/products/doors.png') center/cover no-repeat;"
-                                data-bg-webp="./static/webp/new_index/products/doors.webp"
-                                data-bg-fallback="./static/img/new_index/products/doors.png">
-                                <div class="products__item-text-wrap">
-                                    <div class="products__item-subtitle">ПРОТИВОПОЖАРНЫЕ<br>СВЕТОПРОЗРАЧНЫЕ</div>
-                                    <div class="products__item-text">Двери</div>
+
+            <div class="swiper js-products-slider projects-slider">
+
+                <div class="swiper-wrapper">
+
+                    <!-- Карточка 1 - Двери -->
+                    <div class="swiper-slide">
+                        <a href="https://www.uksgroup.ru/catalog/dveri" class="projects-card">
+                            <div class="projects-card__image">
+                                <img src="./static/img/new_index/products/doors.png"
+                                    data-webp="./static/webp/new_index/products/doors.webp" alt="Противопожарные двери">
+                                <div class="projects-card__overlay">
+                                    <h3 class="projects-card__title">ДВЕРИ</h3>
                                 </div>
                             </div>
-                        </a>
-                        <a href="https://www.uksgroup.ru/catalog/peregorodki">
-                            <div class="products__item"
-                                style="background: url('./static/img/new_index/products/speakingroom.png') center/cover no-repeat;"
-                                data-bg-webp="./static/webp/new_index/products/speakingroom.webp"
-                                data-bg-fallback="./static/img/new_index/products/speakingroom.png">
-                                <div class="products__item-text-wrap">
-                                    <div class="products__item-subtitle">ПРОТИВОПОЖАРНЫЕ</div>
-                                    <div class="products__item-text">Перегородки</div>
-                                </div>
+                            <div class="projects-card__bottom">
+                                ПРОТИВОПОЖАРНЫЕ СВЕТОПРОЗРАЧНЫЕ
                             </div>
                         </a>
                     </div>
 
-                    <!-- Второй столбец -->
-                    <div class="products__column">
-                        <a href="https://www.uksgroup.ru/catalog/okna">
-                            <div class="products__item"
-                                style="background: url('./static/img/new_index/products/fasads.png') center/cover no-repeat;"
-                                data-bg-webp="./static/webp/new_index/products/fasads.webp"
-                                data-bg-fallback="./static/img/new_index/products/fasads.png">
-                                <div class="products__item-text-wrap">
-                                    <div class="products__item-subtitle">ПРОТИВОПОЖАРНЫЕ</div>
-                                    <div class="products__item-text">Фасады</div>
+                    <!-- Карточка 2 - Фасады -->
+                    <div class="swiper-slide">
+                        <a href="https://www.uksgroup.ru/catalog/okna" class="projects-card">
+                            <div class="projects-card__image">
+                                <img src="./static/img/new_index/products/fasads.png"
+                                    data-webp="./static/webp/new_index/products/fasads.webp"
+                                    alt="Противопожарные фасады">
+                                <div class="projects-card__overlay">
+                                    <h3 class="projects-card__title">ФАСАДЫ</h3>
                                 </div>
                             </div>
-                        </a>
-                        <a href="https://www.uksgroup.ru/catalog/vitrazhi">
-                            <div class="products__item"
-                                style="background: url('./static/img/new_index/products/fasasds_result.png') center/cover no-repeat;"
-                                data-bg-webp="./static/webp/new_index/products/fasasds_result.webp"
-                                data-bg-fallback="./static/img/new_index/products/fasasds_result.png">
-                                <div class="products__item-text-wrap">
-                                    <div class="products__item-text">Фасадные<br>решения</div>
-                                </div>
+                            <div class="projects-card__bottom">
+                                ПРОТИВОПОЖАРНЫЕ
                             </div>
                         </a>
                     </div>
+
+                    <!-- Карточка 3 - Перегородки -->
+                    <div class="swiper-slide">
+                        <a href="https://www.uksgroup.ru/catalog/peregorodki" class="projects-card">
+                            <div class="projects-card__image">
+                                <img src="./static/img/new_index/products/speakingroom.png"
+                                    data-webp="./static/webp/new_index/products/speakingroom.webp"
+                                    alt="Противопожарные перегородки">
+                                <div class="projects-card__overlay">
+                                    <h3 class="projects-card__title">ПЕРЕГОРОДКИ</h3>
+                                </div>
+                            </div>
+                            <div class="projects-card__bottom">
+                                ПРОТИВОПОЖАРНЫЕ
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Карточка 4 - Фасадные решения -->
+                    <div class="swiper-slide">
+                        <a href="https://www.uksgroup.ru/catalog/vitrazhi" class="projects-card">
+                            <div class="projects-card__image">
+                                <img src="./static/img/new_index/products/fasasds_result.png"
+                                    data-webp="./static/webp/new_index/products/fasasds_result.webp"
+                                    alt="Фасадные решения">
+                                <div class="projects-card__overlay">
+                                    <h3 class="projects-card__title">ФАСАДНЫЕ РЕШЕНИЯ</h3>
+                                </div>
+                            </div>
+                            <div class="projects-card__bottom">
+                                ФАСАДНЫЕ РЕШЕНИЯ
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
-            <div class="global-products"></div>
-        </div>
-    </section>
-    <section class="projects section" id="projects">
 
+        </div>
+    </section>А
+    <section class="projects section" id="projects">
         <div class="container container--relative">
 
-            <div class="projects__header">
-                <div class="projects__rectangle"></div>
-                <h2 class="projects__title">ПРОЕКТЫ</h2>
-            </div>
-            <select class="projects__button-group-mobile" id="projectsSelect">
-                <option value="dveri">Двери</option>
-                <option value="peregorodki">Перегородки</option>
-                <option value="okna">Окна</option>
-                <option value="vitrazhi">Витражи</option>
-            </select>
-            <div class="projects__button-group">
-                <button class="projects__button projects__button--active" data-section="dveri">Двери</button>
-                <button class="projects__button" data-section="peregorodki">Перегородки</button>
-                <button class="projects__button" data-section="okna">Окна</button>
-                <button class="projects__button projects__button--last" data-section="vitrazhi">Витражи</button>
-            </div>
-            <div class="projects__content-block">
-                <div class="projects__photo" id="photoContainer">
-                    <button class="projects__nav-btn projects__nav-btn--left" id="projectLeftBtn">
-                        <picture>
-                            <source srcset="./static/webp/new_index/prev.webp" type="image/webp">
-                            <source srcset="./static/img/new_index/prev.png" type="image/png">
-                            <img src="./static/img/new_index/prev.png" alt="Left Arrow" loading="lazy">
-                        </picture>
-                    </button>
-                    <button class="projects__nav-btn projects__nav-btn--right" id="projectRightBtn">
-                        <picture>
-                            <source srcset="./static/webp/new_index/next.webp" type="image/webp">
-                            <source srcset="./static/img/new_index/next.png" type="image/png">
-                            <img src="./static/img/new_index/next.png" alt="Right Arrow" loading="lazy">
-                        </picture>
-                    </button>
+            <div class="projects__top">
+
+                <div class="projects__header">
+                    <div class="projects__rectangle"></div>
+                    <h2 class="projects__title">ПРОЕКТЫ</h2>
                 </div>
-                <div class="projects__text">
-                    <div>
-                        <h3 class="projects__text-title" id="textTitle">СТУДЕНЧЕСКИЙ КАМПУС УРФУ, ЕКАТЕРИНБУРГ</h3>
-                        <p class="projects__text-description" id="textDescription">
-                            Комплекс работ по проектированию, изготовлению и монтажу противопожарных конструкций
-                            выполнило ООО «УКС ГРУП». В составе противопожарных конструкций комплекса используются
-                            двери и перегородки из профильной системы Alutech и стекла Pyrolut.
-                        </p>
-                    </div>
-                    <div class="projects__action-buttons">
-                        <div class="projects__action-row">
-                            <button class="projects__action-btn projects__action-btn--outline"
-                                onclick="openPopup()">Оставить заявку</button>
-                            <button class="projects__action-btn projects__action-btn--filled" id="learnMoreBtn">Узнать
-                                больше</button>
-                        </div>
-                        <div class="projects__action-row">
-                            <a href="https://www.uksgroup.ru/proekty"
-                                class="projects__action-btn projects__action-btn--filled projects__action-btn--full-width">Все
-                                проекты</a>
-                        </div>
-                    </div>
+
+                <div class="projects__nav">
+
+                    <button class="projects__arrow projects__arrow--prev"></button>
+
+                    <button class="projects__arrow projects__arrow--next"></button>
+
                 </div>
 
             </div>
-            <div class="global-projects"></div>
+
+            <div class="swiper js-projects-slider projects-slider">
+
+                <div class="swiper-wrapper">
+
+                    <!-- ПЕРЕГОРОДКИ -->
+                    <div class="swiper-slide">
+
+                        <a href="https://www.uksgroup.ru/catalog/peregorodki" class="projects-card">
+
+                            <div class="projects-card__image">
+
+                                <img src="./static/img/new_index/projects/peregorodki.jpg" alt="">
+
+                                <div class="projects-card__overlay">
+                                    <h3 class="projects-card__title">
+                                        Бизнес центр URBAN
+                                    </h3>
+                                </div>
+
+                            </div>
+
+                            <div class="projects-card__bottom">
+                                Перегородки
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    <!-- ДВЕРИ -->
+                    <div class="swiper-slide">
+
+                        <a href="https://www.uksgroup.ru/catalog/dveri" class="projects-card">
+
+                            <div class="projects-card__image">
+
+                                <img src="./static/img/new_index/projects/dveri.jpg" alt="">
+
+                                <div class="projects-card__overlay">
+                                    <h3 class="projects-card__title">
+                                        ЖК Премиум
+                                    </h3>
+                                </div>
+
+                            </div>
+
+                            <div class="projects-card__bottom">
+                                Двери
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    <!-- ОКНА -->
+                    <div class="swiper-slide">
+
+                        <a href="https://www.uksgroup.ru/catalog/okna" class="projects-card">
+
+                            <div class="projects-card__image">
+
+                                <img src="./static/img/new_index/projects/okna.jpg" alt="">
+
+                                <div class="projects-card__overlay">
+                                    <h3 class="projects-card__title">
+                                        Campus Hall
+                                    </h3>
+                                </div>
+
+                            </div>
+
+                            <div class="projects-card__bottom">
+                                Окна
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    <!-- ВИТРАЖИ -->
+                    <div class="swiper-slide">
+
+                        <a href="https://www.uksgroup.ru/catalog/vitrazhi" class="projects-card">
+
+                            <div class="projects-card__image">
+
+                                <img src="./static/img/new_index/projects/vitrazhi.jpg" alt="">
+
+                                <div class="projects-card__overlay">
+                                    <h3 class="projects-card__title">
+                                        Crystal Tower
+                                    </h3>
+                                </div>
+
+                            </div>
+
+                            <div class="projects-card__bottom">
+                                Витражи
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    <div class="swiper-slide">
+
+                        <a href="https://www.uksgroup.ru/catalog/vitrazhi" class="projects-card">
+
+                            <div class="projects-card__image">
+
+                                <img src="./static/img/new_index/projects/vitrazhi.jpg" alt="">
+
+                                <div class="projects-card__overlay">
+                                    <h3 class="projects-card__title">
+                                        Crystal Tower
+                                    </h3>
+                                </div>
+
+                            </div>
+
+                            <div class="projects-card__bottom">
+                                Витражи
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
     </section>
 
 
-
-    <section class="aboutus container" id="aboutus">
-        <div class="aboutus__header container">
-            <h2 class="aboutus__title">О НАС</h2>
-            <div class="aboutus__orange-line"></div>
-        </div>
-        <div class="aboutus__row">
-            <div class="aboutus__container">
-                <div class="aboutus__photo aboutus__photo--bg" id="photoBlock">
-                    <button class="aboutus__arrow-btn aboutus__arrow-btn--left" id="prevBtn">‹</button>
-                    <button class="aboutus__arrow-btn aboutus__arrow-btn--right" id="nextBtn">›</button>
-                </div>
-                <div class="aboutus__text">
-                    <p class="aboutus__bold-text">
-                        Предприятие, специализирующееся на изготовлении огнестойких светопрозрачных конструкций,
-                        применяемых
-                        для противопожарного оборудования зданий и сооружений любого назначения, включая коммерческие,
-                        жилые, производственные и промышленные объекты.
-                    </p>
-                    <p class="aboutus__regular-text">
-                        ООО «УКС ГРУП» осуществляет полный цикл работ, связанных с разработкой технического задания,
-                        проектированием, изготовлением, организацией поставок, монтажом и обслуживанием огнестойких
-                        светопрозрачных конструкций с применением высококачественного противопожарного стального или
-                        алюминиевого профиля и огнеупорного стекла.
-                    </p>
-                    <a class="aboutus__btn" href="https://www.uksgroup.ru/o_zavode/tehnologii">Узнать больше</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="stats" data-webp="./static/webp/new_index/stats_bg.webp"
-        data-fallback="./static/img/new_index/stats_bg.jpg">
+    <section class="aboutus section" id="aboutus">
         <div class="container">
-            <div class="stats__container-filter"></div>
-            <ul class="stats__list">
-                <li class="stats__item">
-                    <div class="stats__number">25</div>
-                    <div class="stats__text">ЛЕТ НА<br>РЫНКЕ</div>
-                </li>
-                <li class="stats__dot"></li>
-                <li class="stats__item">
-                    <div class="stats__number">200</div>
-                    <div class="stats__text">ТЫС. КВ. М<br>СДАННЫХ ОБЪЕКТОВ</div>
-                </li>
-                <li class="stats__dot"></li>
-                <li class="stats__item">
-                    <div class="stats__number">65</div>
-                    <div class="stats__text">РЕГИОНОВ В<br>РФ И СНГ</div>
-                </li>
-                <li class="stats__dot"></li>
-                <li class="stats__item">
-                    <div class="stats__number">65</div>
-                    <div class="stats__text">СЕРТИФИКАТОВ<br>СООТВЕТСТВИЯ</div>
-                </li>
-            </ul>
+
+            <!-- Заголовок -->
+            <div class="aboutus__top">
+                <div class="aboutus__rectangle"></div>
+                <h2 class="aboutus__title">О НАС</h2>
+            </div>
+
+            <div class="aboutus__main">
+
+                <!-- Левая колонка — текст -->
+                <div class="aboutus__text">
+                    <p class="aboutus__description">
+                        ООО «УКС ГРУП» работает на строительном рынке с 1999 года и специализируется
+                        на производстве светопрозрачных конструкций для зданий промышленного,
+                        общеобразовательного и коммерческого назначения, а также жилого фонда
+                    </p>
+                </div>
+
+                <!-- Правая колонка — карусель фото (оставлена прежней) -->
+                <div class="aboutus__photo-wrapper">
+                    <div class="aboutus__photo aboutus__photo--bg" id="photoBlock">
+                        <button class="aboutus__arrow-btn aboutus__arrow-btn--left" id="prevBtn">‹</button>
+                        <button class="aboutus__arrow-btn aboutus__arrow-btn--right" id="nextBtn">›</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Статистика точно по скриншоту (2 + 3) -->
+            <div class="aboutus__stats">
+                <div class="aboutus__stat">
+                    <div class="aboutus__stat-number">26</div>
+                    <div class="aboutus__stat-text">лет успешной работы на строительном рынке</div>
+                </div>
+                <div class="aboutus__stat">
+                    <div class="aboutus__stat-number">58</div>
+                    <div class="aboutus__stat-text">сертификатов соответствия на противопожарные конструкции,
+                        соответствующие действующим нормам и требованиям законодательства</div>
+                </div>
+                <div class="aboutus__stat">
+                    <div class="aboutus__stat-number">220</div>
+                    <div class="aboutus__stat-text">работников ежедневно трудятся над проектами до полного их завершения
+                    </div>
+                </div>
+                <div class="aboutus__stat">
+                    <div class="aboutus__stat-number">5000+</div>
+                    <div class="aboutus__stat-text">объектов различной сложности реализовано нами, и их количество
+                        только растёт</div>
+                </div>
+                <div class="aboutus__stat">
+                    <div class="aboutus__stat-number">6000</div>
+                    <div class="aboutus__stat-text">производственных площадей, что позволяет ежемесячно производить
+                        более 5500 м2 готовых конструкций из стальных и алюминиевых профильных систем</div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -931,7 +1052,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Маска телефона -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./static/js/new_index/script.js"></script>
     <script src="./static/js/new_index/copyhandler.js"></script>
     <script src="./static/js/new_index/form.js"></script>
