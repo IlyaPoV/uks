@@ -19,15 +19,14 @@ $(document).ready(function () {
         }
 
         function sendAjaxForm(form, data) {
-            console.log(data)
+            ym(33675014,'reachGoal','form_success');
             $.ajax({
                 type: 'POST',
                 contentType: 'application/json',
-                url: 'http://uksgroup.test/_service/modern_sendcallback.php',
+                url: '/_service/modern_sendcallback.php',
                 data: JSON.stringify(data),
                 success: function (response) {
-                    console.log(response)
-                    // здесь можно заменить на свою логику показа окна
+                    showSuccessPopup();
                     $('#successPopup').fadeIn();
                     $(form).trigger("reset");
                 },
@@ -35,46 +34,72 @@ $(document).ready(function () {
                     alert('Ошибка при отправке формы. Попробуйте позже.');
                 }
             });
-            showSuccessPopup();
         }
 
-        $('#orderRequestForm, #requestForm, #projectForm').on('submit', function (e) {
+        $('#orderRequestForm, #requestForm, #projectForm, #questionForm, #callbackForm').on('submit', function (e) {
+            e.preventDefault();
 
-                e.preventDefault();
-                const form = this;
-                clearErrors(form);
-    
-                const name = $(form).find('input[name="userName"]').val() || $(form).find('input[type="text"]').first().val();
-                const phone = $(form).find('input[type="tel"]').val();
-                const email = $(form).find('input[name="userEmail"]').val() || "";
-                const city = $(form).find('input[name="userCity"]').val() || "";
+            const form = this;
+            clearErrors(form);
 
-                let valid = true;
-    
-                if (!name || name.trim().length < 2) {
-                    showError($(form).find('input[type="text"]').first(), 'Введите имя');
+            const company = $(form).find('input[name="company"]').val() || '';
+            const name = $(form).find('input[name="userName"]').val() || $(form).find('input[name="name"]').val() || '';
+            const phone = $(form).find('input[name="phone"]').val() || $(form).find('input[type="tel"]').val() || '';
+            const email = $(form).find('input[name="email"]').val() || $(form).find('input[name="userEmail"]').val() || '';
+            const city = $(form).find('input[name="city"]').val() || $(form).find('input[name="userCity"]').val() || '';
+            const message = $(form).find('textarea[name="message"]').val() || '';
+            const policy = $(form).find('input[type="checkbox"][required]');
+
+            let valid = true;
+
+            if ($(form).attr('id') === 'questionForm') {
+                if (!company.trim()) {
+                    showError($(form).find('input[name="company"]'), 'Введите название компании');
                     valid = false;
                 }
-    
-                if (!phone || !isPhoneValid(phone)) {
-                    showError($(form).find('input[type="tel"]'), 'Введите корректный номер');
+
+                if (!email.trim()) {
+                    showError($(form).find('input[name="email"]'), 'Введите email');
                     valid = false;
                 }
-    
-                if (valid) {
-                    const formData = {
-                        name: name.trim(),
-                        phone: phone.trim(),
-                        email: email.trim(),
-                        city: city.trim(),
-                    }
 
-                    sendAjaxForm(form, formData);
-                } else {
-                    console.log('Ошибка валидации', "телефон: "+ phone, name)
-                    console.log($(form).find('input[type="tel"]').val())
+                if (!city.trim()) {
+                    showError($(form).find('input[name="city"]'), 'Введите город');
+                    valid = false;
                 }
-            });
+            }
+
+            if ($(form).attr('id') === 'callbackForm') {
+                if (!city.trim()) {
+                    showError($(form).find('input[name="city"]'), 'Введите город');
+                    valid = false;
+                }
+            }
+
+            if (!phone || !isPhoneValid(phone)) {
+                showError($(form).find('input[type="tel"]'), 'Введите корректный номер');
+                valid = false;
+            }
+
+            if (policy.length && !policy.is(':checked')) {
+                alert('Необходимо согласиться с политикой конфиденциальности');
+                valid = false;
+            }
+
+            if (valid) {
+                const formData = {
+                    form: $(form).attr('id'),
+                    company: company.trim(),
+                    name: name.trim(),
+                    phone: phone.trim(),
+                    email: email.trim(),
+                    city: city.trim(),
+                    message: message.trim(),
+                };
+
+                sendAjaxForm(form, formData);
+            }
+        });
 
         // Закрытие попапа "спасибо"
         $('#successPopupCloseBtn').on('click', function () {

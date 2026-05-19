@@ -1633,7 +1633,7 @@ li {
     white-space: nowrap;
 }
 
-.contacts__messangers img {
+.contacts__messangers .header__whatsapp-btn{
     width: 48px;
     height: 48px;
 }
