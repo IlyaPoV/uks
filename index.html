@@ -581,7 +581,6 @@
         </div>
     </section>
 
-
     <section class="aboutus section" id="aboutus">
         <div class="container">
 
@@ -591,52 +590,57 @@
                 <h2 class="aboutus__title">О НАС</h2>
             </div>
 
+            <!-- Верхняя часть: текст слева + карусель справа -->
             <div class="aboutus__main">
-
+                <!-- Текст -->
                 <div class="aboutus__text">
                     <p class="aboutus__description">
                         ООО «УКС ГРУП» работает на строительном рынке с 1999 года и специализируется
                         на производстве светопрозрачных конструкций для зданий промышленного,
                         общеобразовательного и коммерческого назначения, а также жилого фонда
                     </p>
+
+                    <!-- Первый ряд статистики — внутри левой колонки, как на скрине -->
+                    <div class="aboutus__stats-row aboutus__stats-row--top">
+                        <div class="aboutus__stat">
+                            <div class="aboutus__stat-number">26</div>
+                            <div class="aboutus__stat-text">лет успешной работы на строительном рынке</div>
+                        </div>
+                        <div class="aboutus__stat">
+                            <div class="aboutus__stat-number">58</div>
+                            <div class="aboutus__stat-text">сертификатов соответствия на противопожарные конструкции,
+                                соответствующие действующим нормам и требованиям законодательства</div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Карусель фото -->
                 <div class="aboutus__photo-wrapper">
                     <div class="aboutus__photo aboutus__photo--bg" id="photoBlock">
                         <button class="aboutus__arrow-btn aboutus__arrow-btn--left" id="prevBtn">‹</button>
                         <button class="aboutus__arrow-btn aboutus__arrow-btn--right" id="nextBtn">›</button>
                     </div>
                 </div>
-
             </div>
 
-            <div class="aboutus__stats-row">
-                <div class="aboutus__stat">
-                    <div class="aboutus__stat-number">26</div>
-                    <div class="aboutus__stat-text">лет успешной работы на строительном рынке</div>
-                </div>
-                <div class="aboutus__stat">
-                    <div class="aboutus__stat-number">58</div>
-                    <div class="aboutus__stat-text">сертификатов соответствия на противопожарные конструкции,
-                        соответствующие действующим нормам и требованиям законодательства</div>
-                </div>
-            </div>
-
-            <div class="aboutus__stats-row">
-                <div class="aboutus__stat">
-                    <div class="aboutus__stat-number">220</div>
-                    <div class="aboutus__stat-text">работников ежедневно трудятся над проектами до полного их завершения
+            <!-- Нижний ряд статистики: 3 колонки во всю ширину -->
+            <div class="aboutus__stats">
+                <div class="aboutus__stats-row aboutus__stats-row--bottom">
+                    <div class="aboutus__stat">
+                        <div class="aboutus__stat-number">220</div>
+                        <div class="aboutus__stat-text">работников ежедневно трудятся над проектами до полного их
+                            завершения</div>
                     </div>
-                </div>
-                <div class="aboutus__stat">
-                    <div class="aboutus__stat-number">5000+</div>
-                    <div class="aboutus__stat-text">объектов различной сложности реализовано нами, и их количество
-                        только растёт</div>
-                </div>
-                <div class="aboutus__stat">
-                    <div class="aboutus__stat-number">6000</div>
-                    <div class="aboutus__stat-text">производственных площадей, что позволяет ежемесячно производить
-                        более 5500 м2 готовых конструкций из стальных и алюминиевых профильных систем</div>
+                    <div class="aboutus__stat">
+                        <div class="aboutus__stat-number">5000+</div>
+                        <div class="aboutus__stat-text">объектов различной сложности реализовано нами, и их количество
+                            только растёт</div>
+                    </div>
+                    <div class="aboutus__stat">
+                        <div class="aboutus__stat-number">6000</div>
+                        <div class="aboutus__stat-text">производственных площадей, что позволяет ежемесячно производить
+                            более 5500 м2 готовых конструкций из стальных и алюминиевых профильных систем</div>
+                    </div>
                 </div>
             </div>
 

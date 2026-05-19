@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
-    overflow-x: hidden;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +7,7 @@ body {
 }
 
 body {
+    overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 }
@@ -33,8 +30,10 @@ li {
 }
 
 .container {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .main2025__body img {
@@ -134,7 +133,7 @@ li {
 .header__link.is-open .header__link-dropdown {
     opacity: 1;
     visibility: visible;
-    display: block;
+    transform: translateY(0);
 }
 
 .header__link.is-open .header__link-triangle {
@@ -143,17 +142,22 @@ li {
 
 
 .header__link-dropdown {
-    display: none;
+    /* базовые позиция / внешний вид */
     position: absolute;
     top: 30px;
     left: 50%;
     margin-left: -64px;
+    width: 128px;
     background-color: rgba(0, 0, 0, 0.35);
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 10;
     text-align: center;
-    width: 128px;
+    /* анимированное скрытие */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
 }
 
 .header__link-dropdown::before {
@@ -332,13 +336,6 @@ li {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-}
-
-.header__link-dropdown {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: 0.2s;
 }
 
 /* десктоп */
@@ -855,10 +852,6 @@ li {
     font-size: 60px;
     line-height: 1.1;
     font-weight: 700;
-}
-
-.orange__text {
-    color: #E3644B;
 }
 
 .slider__btn {
@@ -1381,10 +1374,6 @@ li {
 
 /* Адаптивность */
 @media screen and (max-width: 768px) {
-    .container {
-        width: 520px;
-    }
-
     .project-form {
         flex-direction: column;
         width: 100%;
@@ -2905,11 +2894,6 @@ li {
         z-index: 101;
     }
 
-    .container {
-        width: 320px;
-    }
-
-
     .products__item {
         width: 280px;
         height: 180px;
@@ -3229,9 +3213,10 @@ li {
     }
 }
 
+/* ====================== О НАС ====================== */
 .aboutus {
-    padding: 100px 0;
-    background: #f8f8f8;
+    padding: 80px 0;
+    background: #ebebeb;
 }
 
 .aboutus__top {
@@ -3253,74 +3238,190 @@ li {
     margin: 0;
     font-size: 60px;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
     color: #1C1E40;
 }
 
+/* Главная двухколоночная сетка: текст+статы слева, фото справа */
 .aboutus__main {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 440px;
     gap: 60px;
-    margin-bottom: 80px;
+    align-items: start;
+    margin-bottom: 48px;
 }
 
 .aboutus__text {
-    flex: 1;
-    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
 }
 
 .aboutus__description {
-    font-size: 20px;
-    line-height: 1.55;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.6;
     color: #1C1E40;
 }
 
+/* Верхний ряд статистики (2 колонки) — внутри левой колонки */
+.aboutus__stats-row--top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+/* Фото */
 .aboutus__photo-wrapper {
-    flex: 1;
-    max-width: 620px;
+    position: relative;
 }
 
 .aboutus__photo {
     width: 100%;
-    height: 520px;
-    border-radius: 0;           
+    height: 460px;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    background-size: cover;
+    background-position: center;
 }
 
-.aboutus__stats-row {
+.aboutus__arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 26px;
+    line-height: 1;
+    color: #1C1E40;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
     display: flex;
-    gap: 40px;
-    margin-bottom: 40px;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
 }
 
+.aboutus__arrow-btn:hover {
+    background: #fff;
+}
+
+.aboutus__arrow-btn--left  { left: 20px; }
+.aboutus__arrow-btn--right { right: 20px; }
+
+/* Нижний ряд статистики (3 колонки) — на всю ширину */
+.aboutus__stats {
+    /* обёртка нижнего ряда */
+}
+
+.aboutus__stats-row--bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* Общие стили ячейки статистики */
 .aboutus__stat {
-    flex: 1;
-    text-align: center;
+    text-align: left;
 }
 
 .aboutus__stat-number {
-    font-size: 78px;
+    font-size: 80px;
     font-weight: 700;
     line-height: 1;
     color: #E3644B;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .aboutus__stat-text {
-    font-size: 18px;
-    line-height: 1.45;
+    font-size: 16px;
+    line-height: 1.5;
     color: #1C1E40;
+    font-weight: 400;
 }
 
-/* Адаптив */
-@media (max-width: 1200px) {
-    .aboutus__main { gap: 40px; }
-    .aboutus__photo { height: 460px; }
+/* ---- Адаптив О НАС ---- */
+@media (max-width: 1100px) {
+    .aboutus__main {
+        grid-template-columns: 1fr 380px;
+        gap: 40px;
+    }
+
+    .aboutus__stat-number {
+        font-size: 64px;
+    }
+}
+
+@media (max-width: 900px) {
+    .aboutus__main {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutus__photo {
+        height: 360px;
+    }
+
+    .aboutus__photo-wrapper {
+        order: -1; /* фото сверху на планшете */
+    }
 }
 
 @media (max-width: 768px) {
-    .aboutus__main { flex-direction: column; }
-    .aboutus__photo { height: 400px; }
-    .aboutus__title { font-size: 42px; }
-    .aboutus__stats-row { flex-direction: column; gap: 30px; }
+    .aboutus {
+        padding: 60px 0;
+    }
+
+    .aboutus__title {
+        font-size: 42px;
+    }
+
+    .aboutus__rectangle {
+        width: 120px;
+    }
+
+    .aboutus__stats-row--top,
+    .aboutus__stats-row--bottom {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .aboutus__stat-number {
+        font-size: 52px;
+    }
+
+    .aboutus__stat-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutus__title {
+        font-size: 32px;
+    }
+
+    .aboutus__rectangle {
+        width: 80px;
+        height: 7px;
+    }
+
+    .aboutus__description {
+        font-size: 16px;
+    }
+
+    .aboutus__stats-row--top,
+    .aboutus__stats-row--bottom {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .aboutus__stat-number {
+        font-size: 56px;
+    }
+
+    .aboutus__photo {
+        height: 280px;
+    }
 }
