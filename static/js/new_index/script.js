@@ -105,7 +105,7 @@ function initUKSWebsite() {
 
 
   // Проекты
-  const sections = {
+  /* const sections = {
     'dveri': {
       title: 'СТУДЕНЧЕСКИЙ КАМПУС УРФУ, ЕКАТЕРИНБУРГ',
       description: 'Комплекс работ по проектированию, изготовлению и монтажу противопожарных конструкций выполнило ООО «УКС ГРУП». В составе противопожарных конструкций комплекса используются двери и перегородки из профильной системы Alutech и стекла Pyrolut.',
@@ -246,9 +246,9 @@ function initUKSWebsite() {
         }
       ]
     }
-  };
+  }; */
 
-  let currentSection = 'dveri';
+  /* let currentSection = 'dveri';
   let currentImageIndex = 0;
 
   function changeSection(section, clickedBtn) {
@@ -270,9 +270,9 @@ function initUKSWebsite() {
       const imageUrl = isSupported ? imageData.webp : imageData.fallback;
       photoContainer.style.backgroundImage = `url('${imageUrl}')`;
     });
-  }
+  } */
 
-  function nextImage() {
+  /* function nextImage() {
     currentImageIndex = (currentImageIndex + 1) % sections[currentSection].images.length;
     updateImage();
   }
@@ -280,7 +280,7 @@ function initUKSWebsite() {
   function prevImage() {
     currentImageIndex = (currentImageIndex - 1 + sections[currentSection].images.length) % sections[currentSection].images.length;
     updateImage();
-  }
+  } */
 
   document.getElementById('projectLeftBtn')?.addEventListener('click', prevImage);
   document.getElementById('projectRightBtn')?.addEventListener('click', nextImage);
@@ -743,3 +743,50 @@ function initUKSWebsite() {
 }
 
 document.addEventListener('DOMContentLoaded', initUKSWebsite);
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof Swiper === "undefined") {
+        console.warn("Swiper не подключён");
+        return;
+    }
+
+    // 1. ПРОЕКТЫ (js-projects-slider)
+    const projectsSlider = document.querySelector(".js-projects-slider");
+    if (projectsSlider) {
+        new Swiper(projectsSlider, {
+            loop: true,
+            speed: 900,
+            slidesPerView: "auto",        // важно для ровного выравнивания
+            spaceBetween: 40,
+            navigation: {
+                nextEl: ".projects__arrow--next",
+                prevEl: ".projects__arrow--prev"
+            },
+            breakpoints: {
+                1024: { slidesPerView: 3 },
+                768:  { slidesPerView: 2 }
+            }
+        });
+    }
+
+    // 2. ПРОДУКЦИЯ (js-products-slider) — теперь использует те же классы, что и проекты
+    const productsSlider = document.querySelector(".js-products-slider");
+    if (productsSlider) {
+        new Swiper(productsSlider, {
+            loop: true,
+            speed: 900,
+            slidesPerView: "auto",
+            spaceBetween: 40,
+            navigation: {
+                nextEl: ".projects__arrow--next",
+                prevEl: ".projects__arrow--prev"
+            },
+            breakpoints: {
+                1024: { slidesPerView: 3 },
+                768:  { slidesPerView: 2 }
+            }
+        });
+    }
+});
