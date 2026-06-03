@@ -667,28 +667,51 @@ li {
     transition: transform .6s ease;
 }
 
+/* В блоке "ПРОЕКТЫ" заголовок (УрФУ, Clever Park, ДВВС и т.д.)
+   уже впечатан в саму картинку, поэтому показываем её целиком,
+   а не обрезаем по краям. */
+#projects .projects-card__image img {
+    object-fit: contain;
+}
+
 .projects-card:hover .projects-card__image img {
     transform: scale(1.05);
 }
 
 
-.projects-card__title {
-    max-width: 100%;
-
-    color: #fff;
-
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.1;
-}
-
+/* Маленький подзаголовок под картинкой (например, "ПРОТИВОПОЖАРНЫЕ СВЕТОПРОЗРАЧНЫЕ") */
 .projects-card__bottom {
     padding-top: 16px;
 
     color: #1C1E40;
 
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Крупное название продукта под подзаголовком ("ДВЕРИ", "ФАСАДЫ", "ПЕРЕГОРОДКИ") */
+.projects-card__title {
+    margin: 5px 0 0;
+    max-width: 100%;
+
+    color: #1C1E40;
+
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+/* В блоке "ПРОЕКТЫ" .projects-card__title не используется (текст вшит в фото) */
+#projects .projects-card__title {
+    display: none;
+}
+
+/* Боковые отступы по краям каруселей — чтобы первая/последняя карточки
+   не упирались в край контейнера */
+.projects-slider {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 @media (max-width: 980px) {
@@ -800,7 +823,7 @@ li {
     }
 
     .projects-card__title {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .projects-card__bottom {
@@ -3051,12 +3074,8 @@ li {
         height: 260px;
     }
 
-    .projects-card__overlay {
-        padding: 22px;
-    }
-
     .projects-card__title {
-        font-size: 22px;
+        font-size: 26px;
     }
 
     .projects-card__bottom {
@@ -3441,12 +3460,8 @@ li {
         height: 220px;
     }
 
-    .projects-card__overlay {
-        padding: 18px;
-    }
-
     .projects-card__title {
-        font-size: 19px;
+        font-size: 24px;
     }
 
     .projects-card__bottom {

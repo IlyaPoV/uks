@@ -752,13 +752,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // 1. ПРОЕКТЫ (js-projects-slider)
     const projectsSlider = document.querySelector(".js-projects-slider");
     if (projectsSlider) {
         new Swiper(projectsSlider, {
             loop: true,
             speed: 900,
-            slidesPerView: "auto",        // важно для ровного выравнивания
+            slidesPerView: "auto",       
             spaceBetween: 40,
             navigation: {
                 nextEl: ".projects__arrow--next",
@@ -771,7 +770,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. ПРОДУКЦИЯ (js-products-slider) — теперь использует те же классы, что и проекты
     const productsSlider = document.querySelector(".js-products-slider");
     if (productsSlider) {
         new Swiper(productsSlider, {
