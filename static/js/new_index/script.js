@@ -759,13 +759,15 @@ document.addEventListener("DOMContentLoaded", () => {
             speed: 900,
             slidesPerView: "auto",       
             spaceBetween: 40,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
             navigation: {
                 nextEl: ".projects__arrow--next",
                 prevEl: ".projects__arrow--prev"
             },
             breakpoints: {
-                1024: { slidesPerView: 3 },
-                768:  { slidesPerView: 2 }
+                1024: { slidesPerView: 3, slidesOffsetBefore: 20, slidesOffsetAfter: 20 },
+                768:  { slidesPerView: 2, slidesOffsetBefore: 20, slidesOffsetAfter: 20 }
             }
         });
     }
@@ -777,13 +779,15 @@ document.addEventListener("DOMContentLoaded", () => {
             speed: 900,
             slidesPerView: "auto",
             spaceBetween: 40,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
             navigation: {
                 nextEl: ".projects__arrow--next",
                 prevEl: ".projects__arrow--prev"
             },
             breakpoints: {
-                1024: { slidesPerView: 3 },
-                768:  { slidesPerView: 2 }
+                1024: { slidesPerView: 3, slidesOffsetBefore: 20, slidesOffsetAfter: 20 },
+                768:  { slidesPerView: 2, slidesOffsetBefore: 20, slidesOffsetAfter: 20 }
             }
         });
     }
