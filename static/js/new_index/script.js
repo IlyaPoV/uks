@@ -752,26 +752,26 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // 1. ПРОЕКТЫ (js-projects-slider)
     const projectsSlider = document.querySelector(".js-projects-slider");
     if (projectsSlider) {
         new Swiper(projectsSlider, {
             loop: true,
             speed: 900,
-            slidesPerView: "auto",        // важно для ровного выравнивания
+            slidesPerView: "auto",       
             spaceBetween: 40,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
             navigation: {
                 nextEl: ".projects__arrow--next",
                 prevEl: ".projects__arrow--prev"
             },
             breakpoints: {
-                1024: { slidesPerView: 3 },
-                768:  { slidesPerView: 2 }
+                1024: { slidesPerView: 3, slidesOffsetBefore: 20, slidesOffsetAfter: 20 },
+                768:  { slidesPerView: 2, slidesOffsetBefore: 20, slidesOffsetAfter: 20 }
             }
         });
     }
 
-    // 2. ПРОДУКЦИЯ (js-products-slider) — теперь использует те же классы, что и проекты
     const productsSlider = document.querySelector(".js-products-slider");
     if (productsSlider) {
         new Swiper(productsSlider, {
@@ -779,13 +779,15 @@ document.addEventListener("DOMContentLoaded", () => {
             speed: 900,
             slidesPerView: "auto",
             spaceBetween: 40,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
             navigation: {
                 nextEl: ".projects__arrow--next",
                 prevEl: ".projects__arrow--prev"
             },
             breakpoints: {
-                1024: { slidesPerView: 3 },
-                768:  { slidesPerView: 2 }
+                1024: { slidesPerView: 3, slidesOffsetBefore: 20, slidesOffsetAfter: 20 },
+                768:  { slidesPerView: 2, slidesOffsetBefore: 20, slidesOffsetAfter: 20 }
             }
         });
     }

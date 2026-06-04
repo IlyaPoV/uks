@@ -612,27 +612,39 @@ li {
 }
 
 .projects-slider {
-    width: 100%;
+    width: calc(100% - 40px);
+    margin: 0 20px;
     overflow: hidden;
 }
 
 .projects-slider .swiper-wrapper {
     display: flex;
     align-items: stretch;
+    /* Swiper не применяет spaceBetween на наших настройках,
+       поэтому промежутки между слайдами задаём через CSS gap. */
+    gap: 40px;
 }
 
-/* Карточки шире — примерно 1/3 экрана или фиксированный размер */
+/* Карточки: ширина рассчитывается от viewport. Карусель имеет margin 0 20px
+   (см. .projects-slider выше), поэтому видимая ширина = 100vw - 40.
+   Внутри неё помещаются 3 слайда + 2 промежутка по 40px (gap выше) = 100vw - 40.
+   Отсюда: slide = (100vw - 40 - 80) / 3 = (100vw - 120) / 3.
+   Без этой формулы третий слайд вылезал за правый край. */
 .projects-slider .swiper-slide {
-    width: calc(33.333vw - 4px);
-    min-width: 380px;
+    width: calc((100vw - 120px) / 3);
+    min-width: 0;
     height: auto;
     flex-shrink: 0;
 }
 
-/* Продукция — карточки чуть шире */
+/* Продукция — те же правила (та же карусель Swiper с теми же настройками) */
+.swiper.js-products-slider .swiper-wrapper {
+    gap: 40px;
+}
+
 .swiper.js-products-slider .swiper-slide {
-    width: calc(33.333vw - 4px);
-    min-width: 380px;
+    width: calc((100vw - 120px) / 3);
+    min-width: 0;
     height: auto;
     flex-shrink: 0;
 }
@@ -667,28 +679,52 @@ li {
     transition: transform .6s ease;
 }
 
+/* В блоке "ПРОЕКТЫ" заголовок (УрФУ, Clever Park, ДВВС и т.д.)
+   уже впечатан в саму картинку, поэтому показываем её целиком,
+   а не обрезаем по краям. */
+#projects .projects-card__image img {
+    object-fit: contain;
+}
+
 .projects-card:hover .projects-card__image img {
     transform: scale(1.05);
 }
 
 
-.projects-card__title {
-    max-width: 100%;
-
-    color: #fff;
-
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.1;
-}
-
+/* Маленький подзаголовок под картинкой (например, "ПРОТИВОПОЖАРНЫЕ СВЕТОПРОЗРАЧНЫЕ") */
 .projects-card__bottom {
     padding-top: 16px;
 
     color: #1C1E40;
 
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Крупное название продукта под подзаголовком ("ДВЕРИ", "ФАСАДЫ", "ПЕРЕГОРОДКИ") */
+.projects-card__title {
+    margin: 5px 0 0;
+    max-width: 100%;
+
+    color: #1C1E40;
+
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+/* В блоке "ПРОЕКТЫ" .projects-card__title не используется (текст вшит в фото) */
+#projects .projects-card__title {
+    display: none;
+}
+
+/* В блоке "ПРОЕКТЫ" подпись под фото ("Перегородки", "Двери", "Окна", "Витражи")
+   крупная — того же размера, что и большие названия в блоке "НАША ПРОДУКЦИЯ" */
+#projects .projects-card__bottom {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.05;
 }
 
 @media (max-width: 980px) {
@@ -791,8 +827,8 @@ li {
 
     .projects-slider .swiper-slide,
     .swiper.js-products-slider .swiper-slide {
-        width: calc(50vw - 4px);
-        min-width: 300px;
+        width: calc((100vw - 80px) / 2);
+        min-width: 0;
     }
 
     .projects-card__image {
@@ -800,11 +836,15 @@ li {
     }
 
     .projects-card__title {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .projects-card__bottom {
         font-size: 17px;
+    }
+
+    #projects .projects-card__bottom {
+        font-size: 28px;
     }
 }
 
@@ -3051,17 +3091,17 @@ li {
         height: 260px;
     }
 
-    .projects-card__overlay {
-        padding: 22px;
-    }
-
     .projects-card__title {
-        font-size: 22px;
+        font-size: 26px;
     }
 
     .projects-card__bottom {
         padding-top: 12px;
         font-size: 16px;
+    }
+
+    #projects .projects-card__bottom {
+        font-size: 26px;
     }
 
     .aboutus {
@@ -3441,16 +3481,16 @@ li {
         height: 220px;
     }
 
-    .projects-card__overlay {
-        padding: 18px;
-    }
-
     .projects-card__title {
-        font-size: 19px;
+        font-size: 24px;
     }
 
     .projects-card__bottom {
         font-size: 15px;
+    }
+
+    #projects .projects-card__bottom {
+        font-size: 24px;
     }
 
     .aboutus__title {
